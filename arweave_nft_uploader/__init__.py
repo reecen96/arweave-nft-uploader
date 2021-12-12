@@ -154,6 +154,10 @@ def main():
                     txdict = tx.to_dict()
                     uri = "https://arweave.net/{}?ext={}".format(txdict["id"], asset_fileext)
                     asset_data["properties"]["files"][asset["idx"]]["uri"] = uri
+                    logging.error("-------------------------------")
+                    logging.error("---------ITS WORKING------------")
+                    logging.error("-------------------------------")
+                    logging.error(uri)
                     if not has_asset_image and asset_fileext == "png":
                         has_asset_image = True
                         asset_data["image"] = uri
