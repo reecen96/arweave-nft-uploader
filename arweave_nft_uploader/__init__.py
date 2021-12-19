@@ -154,14 +154,15 @@ def main():
                     txdict = tx.to_dict()
                     uri = "https://arweave.net/{}?ext={}".format(txdict["id"], asset_fileext)
                     asset_data["properties"]["files"][asset["idx"]]["uri"] = uri
-                    logging.error("-------------------------------")
-                    logging.error("---------ITS WORKING------------")
-                    logging.error("-------------------------------")
-                    logging.error(uri)
+                    
+                    logging.error("processing file" + idx)
                     if not has_asset_image and asset_fileext == "png":
+                        logging.error("image updated!")
                         has_asset_image = True
                         asset_data["image"] = uri
-                    if asset_fileext == "mp4":
+                    if asset_fileext == "glb":
+                        logging.error("Animation URL updated! (GLB)")
+                        logging.error(uri)
                         asset_data["animation_url"] = uri
             if not has_asset_image:
                 logging.error("At least one png image is required for json file: " + str(jsonfile) + ", skipping")
